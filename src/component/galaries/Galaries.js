@@ -11,16 +11,20 @@ import galarie9 from '../../images/galaries/galarie9.jpg'
 
 const Galaries = () => {
     return (
-        <div className='row g-0 w-75 mx-auto row-cols-md-2 row-cols-lg-3'>
-            <img className="col" src={galarie1} alt="" />
-            <img className="col" src={galarie2} alt="" />
-            <img className="col" src={galarie3} alt="" />
-            <img className="col" src={galarie4} alt="" />
-            <img className="col" src={galarie5} alt="" />
-            <img className="col" src={galarie6} alt="" />
-            <img className="col" src={galarie7} alt="" />
-            <img className="col" src={galarie8} alt="" />
-            <img className="col" src={galarie9} alt="" />
+        <div>
+            <h3 className='text-center text-info'>Galary</h3>
+            <hr className='w-25 mx-auto' />
+            <div className='row g-0 w-75 mx-auto row-cols-md-2 row-cols-lg-3'>
+                <img className="col" src={galarie1} alt="" />
+                <img className="col" src={galarie2} alt="" />
+                <img className="col" src={galarie3} alt="" />
+                <img className="col" src={galarie4} alt="" />
+                <img className="col" src={galarie5} alt="" />
+                <img className="col" src={galarie6} alt="" />
+                <img className="col" src={galarie7} alt="" />
+                <img className="col" src={galarie8} alt="" />
+                <img className="col" src={galarie9} alt="" />
+            </div>
         </div>
     );
 };

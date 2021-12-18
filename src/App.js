@@ -1,4 +1,4 @@
-import { BrowserRouter,Switch,Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AddNewService from './component/addNewService/AddNewService';
 import Banner from './component/banner/Banner';
 import Footer from './component/footer/Footer';
@@ -17,44 +17,44 @@ function App() {
   return (
     <AuthContext>
       <BrowserRouter>
-      <Header/>
+        <Header />
         <Switch>
           <Route exact path='/'>
-            <Banner/>
-            <Rooms/>
-            <Galaries/>
+            <Banner />
+            <Rooms room={true} />
+            <Galaries />
           </Route>
           <Route path='/home'>
-            <Banner/>
-            <Rooms/>
-            <Galaries/>
+            <Banner />
+            <Rooms room={true} />
+            <Galaries />
           </Route>
           <Route path='/login'>
-            <Login/>
+            <Login />
           </Route>
           <Route path='/register'>
-            <Register/>
+            <Register />
           </Route>
           <Route path='/rooms'>
-            <Rooms/>
+            <Rooms />
           </Route>
           <Route path='/galarie'>
-            <Galaries/>
+            <Galaries />
           </Route>
           <PrivateRoute path='/addnewservice'>
-            <AddNewService/>
+            <AddNewService />
           </PrivateRoute>
           <PrivateRoute path='/manageAllOrders'>
-            <ManageAllOrders/>
+            <ManageAllOrders />
           </PrivateRoute>
           <PrivateRoute path='/myorder'>
-            <MyOrders/>
+            <MyOrders />
           </PrivateRoute>
           <PrivateRoute path='/placeorder/:orderId'>
-            <PlaceOrder/>
+            <PlaceOrder />
           </PrivateRoute>
         </Switch>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </AuthContext>
   );

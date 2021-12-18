@@ -1,28 +1,49 @@
 import React, { useState } from 'react';
-
+import swal from 'sweetalert'
 const AddNewService = () => {
     const [service, setService] = useState({})
 
-    const handleChange = (e) => {
+    const handleChange = (e, isFile = false) => {
         let newService = { ...service };
-        newService[e.target.name] = e.target.value;
+
+        if (isFile) {
+            console.log(e.target.files[0]);
+            newService[e.target.name] = e.target.files[0];
+        } else {
+            newService[e.target.name] = e.target.value;
+        }
         setService(newService)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        service.currency = 'taka'
+        const formData = new FormData();
+        formData.append('image', 'upload')
+        for (let x in service) {
+            formData.append(x, service[x])
+        }
+        console.log(formData);
         fetch('https://frightening-skull-92151.herokuapp.com/rooms', {
             method: "POST",
-            headers: { "Content-type": "application/json" },
-            body: JSON.stringify(service)
+            body: formData
         })
             .then(res => res.json())
             .then(data => {
                 if (data.insertedId) {
-                    alert('new service added')
+                    swal({
+                        title: "Good job!",
+                        text: "You successfully added a room service",
+                        icon: "success",
+                    });
                     e.target.reset()
                 }
+            })
+            .catch(e => {
+                swal({
+                    title: "Error!",
+                    text: e.message,
+                    icon: "error",
+                });
             })
     }
     return (
@@ -37,7 +58,7 @@ const AddNewService = () => {
                 <label className='fw-bold text-warning' htmlFor="description">Description:</label>
                 <textarea onChange={handleChange} required className="form-control" type="text" name="description" id="description" placeholder='enter sort description' /><br />
                 <label className='fw-bold text-warning' htmlFor="image">image:</label>
-                <input onChange={handleChange} required className="form-control" type="text" name="image" id="image" placeholder='enter  image link' /><br />
+                <input onChange={(e) => handleChange(e, true)} required className="form-control" type="file" name="img" id="image" placeholder='enter  image link' /><br />
                 <input type="submit" className="btn btn-info text-light fw-bold" value="Add New Service" />
             </form>
         </div>
