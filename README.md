@@ -1,6 +1,8 @@
 # Getting Started with Create React App
 
-[Live Project](https://coxs-resort-tourism-web.web.app/).
+[Live Project](https://coxs-resort-tourism-web.web.app/) <br/>
+[Client Side Code](https://github.com/faishal-developer/Coxs-Resort-client-part/) <br/>
+[Server Side Code](https://github.com/faishal-developer/Coxs-Resort-server-side/) <br/>
 
 # Speciality
 * client side rendering 
